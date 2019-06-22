@@ -1,0 +1,30 @@
+<a href='javascript:wishlist();'
+
+<script>
+            function myFunction() {
+                var x = document.getElementsByClassName("row").length;
+                document.getElementById("demo").innerHTML = x.length;
+            }
+        </script>
+
+onclick = "this.className = 'glyphicon glyphicon-heart'" >  
+<script>             
+            var toggleState = false;
+
+            $('.show').click(function() 
+            {
+                $(".text").toggle();
+                $(this).toggleClass('hide').attr('title', toggleState ? 'Show All' : 'Hide All');
+                toggleState = !toggleState;
+            });
+            
+            $(document).ready(function()
+            {
+                $("span").click(function(){
+                    $(this).toggleClass("glyphicon-heart"); 
+                    $('[data-toggle="tooltip"]').tooltip(); 
+                });
+                
+                $('[data-toggle="tooltip"]').tooltip(); 
+            });
+        </script> 

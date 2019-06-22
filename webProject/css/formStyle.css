@@ -1,0 +1,105 @@
+
+form
+{
+    color:#23262D;
+    margin-top:35px;
+    margin-bottom: -15px;
+}
+
+h1
+{
+    text-align: center;
+    color:#FF7900;
+}
+
+table
+{
+    width:725px;
+    margin:auto;
+    padding-left: 36px;    
+}
+
+td
+{
+    font-weight: bold;
+    padding: 15px;
+}
+
+span
+{
+    color:#D26A7E;
+    font-size: 18px;
+}
+
+.c
+{
+    border:1px solid #DEDEDE;
+    border-style:solid none;
+    background-color: #F6F6F6;
+    padding:15px;
+}
+
+input[type=text],input[type=number],input[type=password]
+{
+    float:right;
+    border:1px solid #999999;
+    border-radius: 4px;
+    height:21px;
+    font-weight: normal !important;
+    color:#23262D;
+    padding: 13px 0 13px 5px;
+    background:linear-gradient(#ECECEC,white);
+    margin-right: 5px;
+}
+
+input[type=number]
+{
+    margin-right: 187px;
+}
+
+input[type=file],textarea
+{
+    float:right;
+    margin-right: 99px;
+}
+
+input[name="rating"]
+{
+    margin-right: 305px;
+}
+
+textarea
+{
+    margin-right: 5px;
+    font-weight: normal;
+}
+    
+input[type=submit]
+{
+    border:1px solid #999999;
+    border-radius: 4px;
+    height:30px;
+    font-weight: bold;
+    color:#23262D;
+    background:linear-gradient(white,#ECECEC);
+    font-family: Arial;
+    width: 75px;
+    margin-left: 41px;
+}
+
+.s
+{
+    border:1px solid #DEDEDE;
+    border-style:solid none none;    
+    background-color: #F6F6F6;
+    padding:15px;
+    text-align: center;
+}
+
+@media (max-width: 767px)
+{
+    h1
+    {
+        font-size: 35px;
+    }
+}
