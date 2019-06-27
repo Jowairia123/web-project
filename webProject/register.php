@@ -1,18 +1,5 @@
 <?php
     
-//    $servername = "localhost";
-//    $username = "root";
-//    $password = "";
-//    $databasename = "userAuthentication";
-//
-//    // Create connection
-//    $conn = mysqli_connect($servername, $username, $password, $databasename);
-//
-//    // Check connection
-//    if (!$conn)
-//    {
-//        die("Connection failed: " . mysqli_connect_error());
-//    }
 require 'config.php';
 
     $name = filter_input(INPUT_POST, 'username', FILTER_SANITIZE_STRING);
@@ -23,12 +10,15 @@ require 'config.php';
 
     if (mysqli_query($conn, $sql)) 
     {
-        echo "New record created successfully";
+        echo "<script>alert('Registered successfully');</script>";
+        //header("location: LoginForm.php?invalid=1");
     } 
     
     else 
     {
         echo "Error: " . $sql . "<br>" . mysqli_error($conn);
+        echo "<script>alert('Already used! Choose anyother username.');</script>";
+        //header("location: userRegistrationForm.php?invalid=1");
     }
 
     mysqli_close($conn);

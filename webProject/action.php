@@ -1,5 +1,7 @@
 <?php
 
+session_start();
+
     require 'config.php';
     // Check connection
     if (!$conn)
@@ -20,6 +22,7 @@
     
     if ($count == 1) 
     {
+        $_SESSION["AUser"] = $uName;
         echo "successfully Login";
         header("location: index.php");
     } 

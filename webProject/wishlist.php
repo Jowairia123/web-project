@@ -1,3 +1,6 @@
+<?php 
+    //session_start();
+?>
 <!DOCTYPE html>
 <html>
     <head>
@@ -41,7 +44,7 @@
         <div class = "container c">
             <h1>Wish List</h1> 
             <div class="row">          
-    <!-- 2nd column -->               
+    <!-- 1st column -->               
                 <div class="col-xs-4 col-sm-3 col-md-3 col-lg-4 pics">
                     <?php 
                         require 'config.php';
@@ -67,7 +70,7 @@
                         }
                     ?>                                                               
                 </div>
-    <!-- 3rd column -->                
+    <!-- 2nd column -->                
                 <div class="col-xs-4 col-sm-3 col-md-3 col-lg-4 pics">
                     <?php
                         $c = 1;
@@ -87,7 +90,7 @@
                         }
                     ?>                    
                 </div>
-    <!-- 4th column -->
+    <!-- 3rd column -->
                 <div class="col-xs-4 col-sm-2 col-md-3 col-lg-4 pics">
                     <?php
                         $cou = 1;

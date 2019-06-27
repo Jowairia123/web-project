@@ -1,19 +1,40 @@
+<?php 
+    //session_start();
+?>
+
 <?php
 
     require 'config.php';
 
-    $q = $_REQUEST["q"];
+    $id = $_REQUEST["id"];
+    $tooltip = $_REQUEST["tooltip"];
     
-    $sql = "INSERT INTO wishlist (customerId, productId) VALUES (1, $q)";
-    
-    if(mysqli_query($conn, $sql))
+    if($tooltip == "Add to wish list")
     {
-        $res = "true";
+        $sql = "INSERT INTO wishlist (customerId, productId) VALUES (1, $id)";
+        
+        if(mysqli_query($conn, $sql))
+        {
+            $res = "true";
+        }
+        else
+        {
+            $res = "false";
+            echo"<script>alert('false data')</script>";
+        }
     }
-    
     else
     {
-        $res = "false";
+        $sql = "DELETE FROM wishlist where productId =".$id;
+    
+        if(mysqli_query($conn, $sql))
+        {
+            $res = "true";
+        }
+        else
+        {
+            $res = "false";
+        }
     }
     
     echo $res;

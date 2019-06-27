@@ -1,3 +1,7 @@
+<?php 
+    //session_start();
+?>
+
 <!DOCTYPE html>
 <html>
     <head>
@@ -115,8 +119,8 @@
                     ?>
                         <div>
                                 <span id ="wish" value="<?php echo $rec['productId'] ?>" data-toggle="tooltip" 
-                                      data-placement="left" title='Add to wish list' class='glyphicon glyphicon-heart-empty'>                                                                                                    
-                                </span>                                    
+                                      data-placement="left" title='Add to wish list' class='glyphicon glyphicon-heart-empty'>
+                                </span>
                             <a href="thirdPage.php?id=<?php echo $rec['productId'] ?>"><?php echo $rec['Name'] ?></a>
                         </div>
                     <?php
@@ -127,52 +131,69 @@
                             }
                         }
                     ?>
+                    
+                    <?php
+//                        if($_SESSION["AUser"] != null)
+//                        {
+//                            echo"<script>alert('Kindly first to add into wishlist');</script>";
+//                            
+//                        }
+//                        else
+//                        {
+//                            echo"<script>alert('Kindly first login to add into wishlist');</script>";
+//                        }
+                    ?>
                 </div>
             </div>
         </div>
     
-        <script>                        
+        <script>
             $(document).ready(function()
             {
                 $("span").click(function()
                 {
                     $(this).toggleClass("glyphicon-heart");
-                    addToWishList($(this).attr('value'));
-//                  $(".tooltip-inner").hide();
-//                  alert("Tag Data: "+$(this).attr('value'));
+                    addToWishList($(this).attr("value"),$(this).attr("data-original-title"));
+
+                    // $(".tooltip-inner").hide();
+                    // alert("Tag Data: "+$(this).attr("value"));
                 });
-                
-              $('[data-toggle="tooltip"]').tooltip();
-            });
-            
-            function addToWishList(str) 
+
+                $("[data-toggle='tooltip']").tooltip();
+            }); 
+                                    
+            function addToWishList(id, tooltip) 
             {
-                // alert("Add to Wishlish: "+str);
-                if (str !== "") 
+                //alert("Add to Wishlish: "+id);
+                if (id !== "") 
                 {
                     var xmlhttp = new XMLHttpRequest();
                     
                     xmlhttp.onreadystatechange = function() 
                     {
-                        if (this.readyState === 4 && this.status === 200)                         
-                            if(this.responseText === "true")
+                        if (this.readyState === 4 && this.status === 200)
+                            if(this.responseText)
                             {
                                 //alert("Item added into wish list: ");
-                                $(".glyphicon-heart-empty").attr('data-original-title', 'Add to wish list');
-                                $(".glyphicon-heart").attr('data-original-title', 'Remove from wish list'); 
-                                //$("span").attr('class', 'glyphicon-heart'); 
-                                //$(".tooltip .tooltip-inner").css("font-size","14px");                                                                                               
+                                $(".glyphicon-heart-empty").attr("data-original-title", "Add to wish list");
+                                $(".glyphicon-heart").attr("data-original-title", "Remove from wish list"); 
+                                //$("span").attr('class', 'glyphicon-heart');
+                                //$(".tooltip .tooltip-inner").css("font-size","14px");
                             }
                             
                             else
-                                alert("Item unable to add into wishlist. Try Again Later!!!");                    
+                            {
+                                alert("Operation unable to perform. Try Again Later!!!");
+                                $(".glyphicon-heart").attr('class', 'glyphicon glyphicon-heart-empty');
+                            }
+                        
                     };
                     
-                    xmlhttp.open("POST", "addToWishList.php?q="+str, true);
+                    xmlhttp.open("POST", "addToWishList.php?id="+id+"&tooltip="+tooltip, true);
                     xmlhttp.send();
                 }
-            }
-     
+            } 
+//     
 //function showUser(str) {
 //    if (str == "") {
 //        document.getElementById("txtHint").innerHTML = "";
@@ -208,30 +229,29 @@
                         
         </script>
         <div class = "container-fluid b">                
-                <div class="row">  
-                    <div class="col-xs-4  col-sm-4 col-md-4 col-lg-4">
-                        <h3><span class="badge">1</span>Pick a Product</h3>
-                        <img class="img-responsive" src="img/first.png" alt="first"/>
-                        <p>We have hundreds of products to choose from in our catalog. 
-                            We have apparel available in sizes from infants to adults.</p>
-                    </div>
-
-                    <div class="col-sm-4 col-md-4 col-lg-4">
-                        <h3><span class="badge">2</span>Design Your Apparel</h3>
-                        <img class="img-responsive" src="img/second.png" alt="second"/>
-                        <p>Create a custom design using our templates or clipart. 
-
-                            Already have a design? Upload it in our Design Studio and place it on the garment.</p>
-                    </div>
-
-                    <div class="col-sm-4 col-md-4 col-lg-4">
-                        <h3><span class="badge">3</span>Checkout</h3>
-                        <img class="img-responsive" src="img/third.png" alt="third"/>
-                        <p>The only thing left to do is select a delivery date for your custom apparel. 
-                            Our rush deliveries guarantee you’ll get your order on time.</p>
-                    </div>
+            <div class="row">  
+                <div class="col-xs-4  col-sm-4 col-md-4 col-lg-4">
+                    <h3><span class="badge">1</span>Pick a Product</h3>
+                    <img class="img-responsive" src="img/first.png" alt="first"/>
+                    <p>We have hundreds of products to choose from in our catalog. 
+                        We have apparel available in sizes from infants to adults.</p>
                 </div>
 
+                <div class="col-sm-4 col-md-4 col-lg-4">
+                    <h3><span class="badge">2</span>Design Your Apparel</h3>
+                    <img class="img-responsive" src="img/second.png" alt="second"/>
+                    <p>Create a custom design using our templates or clipart. 
+
+                        Already have a design? Upload it in our Design Studio and place it on the garment.</p>
+                </div>
+
+                <div class="col-sm-4 col-md-4 col-lg-4">
+                    <h3><span class="badge">3</span>Checkout</h3>
+                    <img class="img-responsive" src="img/third.png" alt="third"/>
+                    <p>The only thing left to do is select a delivery date for your custom apparel. 
+                        Our rush deliveries guarantee you’ll get your order on time.</p>
+                </div>
+            </div>
         </div>                
         <div class="container p">
             <div class="row">  
@@ -261,8 +281,6 @@
 //                            $(this).toggleClass("glyphicon glyphicon-heart");
 //                        });
 //                    });
-        </script>
-                   
-                
+        </script>               
     </body>
 </html>

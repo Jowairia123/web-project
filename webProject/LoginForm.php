@@ -1,3 +1,7 @@
+<?php
+    session_start();
+?>
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -14,9 +18,10 @@
                 echo '<script>alert("Enter Valid UserName and Password")</script>';
                 echo '<script>
                         $(document).ready(function()
-                        {
-                            $("").load(function()
-                            {$("#res").text("Enter Valid UserName and Password");</script>';
+                        {                           
+                            $("#res").text("Enter Valid UserName and Password");
+                        });
+                      </script>';
             }
         ?>
         

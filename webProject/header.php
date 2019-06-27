@@ -65,7 +65,7 @@
                         <li><a href="#home">View All</a></li>                                   
                     </ul>
                 </li>
-                <li><a href="#" class="active">Templates</a></li>
+                <li><a href="wishlist.php" class="active">WishList</a></li>
                 <li class="dropdown">
                     <a class="dropdown-toggle" data-toggle="dropdown" href="#">Help
                     <span class="caret"></span></a>

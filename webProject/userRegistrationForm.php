@@ -27,7 +27,7 @@
                     </td>
                 </tr>                
                 <tr>
-                    <td>Confirm Password:
+                    <td>Confirm Password:<span> * </span>
                         <input type = "password" name="cpassword" min ="6" maxlength="8" placeholder="Confirm Password" 
                                size="46" required>
                     </td>
